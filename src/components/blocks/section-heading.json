@@ -10,6 +10,9 @@
     },
     "description": {
       "type": "richtext"
+    },
+    "sub_heading": {
+      "type": "string"
     }
   },
   "config": {}

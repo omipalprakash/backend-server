@@ -57,6 +57,7 @@ export interface BlocksSectionHeading extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.RichText;
     heading: Schema.Attribute.String;
+    sub_heading: Schema.Attribute.String;
   };
 }
 
