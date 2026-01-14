@@ -7,6 +7,9 @@ export interface BlocksCardGrid extends Struct.ComponentSchema {
   };
   attributes: {
     cards: Schema.Attribute.Component<'shared.card', true>;
+    section_type: Schema.Attribute.Enumeration<
+      ['applications', 'support', 'performance', 'power']
+    >;
   };
 }
 
@@ -65,6 +68,7 @@ export interface BlocksServices extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.RichText;
     heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.Component<'shared.link', false>;
     sub_heading: Schema.Attribute.String;
     text: Schema.Attribute.RichText;

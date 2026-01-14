@@ -41,6 +41,14 @@ const populate = {
           },
         },
       },
+      "blocks.services": {
+        populate: {
+          link: true,
+          image: {
+            fields: ["url", "alternativeText"],
+          },
+        },
+      },
     },
   },
 };
