@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlocksBanner extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_banners';
+  info: {
+    displayName: 'Banner';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    type: Schema.Attribute.Enumeration<['IMAGE', 'VIDEO']>;
+    video: Schema.Attribute.Media<'videos'>;
+  };
+}
+
 export interface BlocksCardGrid extends Struct.ComponentSchema {
   collectionName: 'components_blocks_card_grids';
   info: {
@@ -46,6 +58,19 @@ export interface BlocksHero extends Struct.ComponentSchema {
     sub_heading: Schema.Attribute.String;
     text: Schema.Attribute.String;
     video: Schema.Attribute.Media<'videos'>;
+  };
+}
+
+export interface BlocksMarkdown extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_markdowns';
+  info: {
+    displayName: 'Markdown';
+  };
+  attributes: {
+    banner: Schema.Attribute.Component<'blocks.banner', false>;
+    content: Schema.Attribute.RichText;
+    heading: Schema.Attribute.Component<'blocks.section-heading', false>;
+    link: Schema.Attribute.Component<'shared.link', false>;
   };
 }
 
@@ -191,9 +216,11 @@ export interface SharedStatItem extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blocks.banner': BlocksBanner;
       'blocks.card-grid': BlocksCardGrid;
       'blocks.guarantee': BlocksGuarantee;
       'blocks.hero': BlocksHero;
+      'blocks.markdown': BlocksMarkdown;
       'blocks.section-heading': BlocksSectionHeading;
       'blocks.services': BlocksServices;
       'layout.footer': LayoutFooter;

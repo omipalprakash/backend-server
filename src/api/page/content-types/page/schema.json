@@ -1,10 +1,10 @@
 {
-  "kind": "singleType",
-  "collectionName": "landing_pages",
+  "kind": "collectionType",
+  "collectionName": "pages",
   "info": {
-    "singularName": "landing-page",
-    "pluralName": "landing-pages",
-    "displayName": "Landing Page"
+    "singularName": "page",
+    "pluralName": "pages",
+    "displayName": "Page"
   },
   "options": {
     "draftAndPublish": true
@@ -17,14 +17,18 @@
     "description": {
       "type": "text"
     },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "blocks.hero",
-        "blocks.section-heading",
-        "blocks.card-grid",
-        "blocks.guarantee",
         "blocks.services",
+        "blocks.section-heading",
+        "blocks.hero",
+        "blocks.guarantee",
+        "blocks.card-grid",
         "blocks.markdown"
       ]
     }
